@@ -1,4 +1,9 @@
 <x-app-layout>
+    @if(session('success'))
+    <div class = "success">
+        {{ session('success') }}
+    </div>
+    @endif
     <h1>All posts</h1>
     <a href="{{ route('posts.create') }}">Create post</a>
     <ul>

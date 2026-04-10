@@ -42,7 +42,8 @@ class PostController extends Controller
 
         Post::create($data);
 
-        return redirect('/posts');
+        //$request->session()->flash('status', 'Task was successful!');
+        return redirect('/posts')->with('success', "Created succsefully!");
     }
 
     /**
@@ -82,7 +83,7 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect('/posts');
+        return redirect('/posts')->with('success', "Edited succsefully!");
     }
 
     /**
@@ -92,13 +93,13 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect('/posts');
+        return redirect('/posts')->with('success', "Deleted succsefully!");
     }
 
     public function destroyAll () {
         foreach (Post::all() as $i) {
                 $i->delete();
         }
-        return redirect('/posts');
+        return redirect('/posts')->with('success', "All posts deleted succsesfully!");
     }
 }
