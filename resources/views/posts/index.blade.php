@@ -11,7 +11,7 @@
             <li>
                 <h2>Title: {{ $post->title }}</h2>
                 <p>Content: {{ $post->content }}</p>
-                <div>
+                <div class = "postButtons">
                     <a href="{{ route('posts.show', $post->id) }}">Show</a>
                     <a href="{{ route('posts.edit', $post->id) }}">Edit</a>
                     <form action="{{ route('posts.delete', $post->id) }}" method="post">
