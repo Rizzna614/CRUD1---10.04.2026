@@ -17,5 +17,11 @@
                 </div>
             </li>
         @endforeach
+        <br>
+        <form action = "{{ route('posts.deleteAll') }}" method = "post">
+            @csrf
+            @method("DELETE")
+            <input type = "submit" value = "DELETE ALL">
+        </form>
     </ul>
 </x-app-layout>

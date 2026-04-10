@@ -94,4 +94,11 @@ class PostController extends Controller
         $post->delete();
         return redirect('/posts');
     }
+
+    public function destroyAll () {
+        foreach (Post::all() as $i) {
+                $i->delete();
+        }
+        return redirect('/posts');
+    }
 }
