@@ -1,6 +1,14 @@
 <x-app-layout>
     <h1>Edit post</h1>
 
+    <?php
+    echo "<ul>";
+        foreach ($errors->all() as $message) {
+            echo "<li>". $message. "</li>";
+        }
+    echo "</ul>";
+    ?>
+
     <form action="{{ route('posts.update', $post->id) }}" method="post">
         @csrf
         @method('put')

@@ -70,6 +70,11 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
+        $validated = $request->validate([
+            'title' => 'required||max:10',
+            'content' => 'required',
+        ]);
+
         $data = [
             'title' => $request->title,
             'content' => $request->content
