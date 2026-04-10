@@ -29,6 +29,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validated = $request->validate([
+            'title' => 'required||max:10',
+            'content' => 'required',
+        ]);
+
         $data = [
             'title' => $request->title,
             'content' => $request->content
@@ -47,7 +53,7 @@ class PostController extends Controller
         $post = Post::find($id);
         return view('posts.show', ['post' => $post]);
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -82,5 +88,5 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
         return redirect('/posts');
-    }    
+    }
 }
